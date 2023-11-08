@@ -66,9 +66,8 @@ def midm_test():
             total_cosine_similarity += cos_similar
             # file write
             f.write(f"input: {input_data['text']}    output: {input_data['labal']}    pred: {decoded_text}    similar:{cos_similar}\n")
-    
+    f.write(f"avg_similarity : {total_cosine_similarity / 30}")
     f.close() 
-    print(f"avg_similarity : {total_cosine_similarity / 30}")
 
 if __name__ == "__main__":
     midm_test()
