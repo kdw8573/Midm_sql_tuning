@@ -39,6 +39,11 @@ def midm_train():
 - midm_test.py에서 val.jsonl 파일에서 랜덤하게 30개 결과 추론 후 similarity.txt 파일로 저장
 
 ```python
+...
+# merge lora config
+model = PeftModel.from_pretrained(model, "./outputs/checkpoint-800") # model이 저장된 경로
+model = model.merge_and_unload()
+...
 test_raw_data = load_jsonl("./val.jsonl")
 random_data = random.sample(test_raw_data, 30)
 tfidf_vectorizer = TfidfVectorizer()
